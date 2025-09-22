@@ -12,10 +12,12 @@ vim.o.incsearch = true
 vim.o.winborder = "rounded"
 vim.o.smartcase = true
 vim.o.ignorecase = true
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
 -- Plugins
 vim.pack.add({
-    "https://github.com/embark-theme/vim",
+    "https://github.com/rebelot/kanagawa.nvim",
 	"https://github.com/echasnovski/mini.statusline",
 	"https://github.com/echasnovski/mini.pick",
 	"https://github.com/echasnovski/mini.completion",
@@ -27,7 +29,6 @@ vim.pack.add({
 })
 
 -- Plugin setup
-vim.cmd.colorscheme("embark")
 require("mini.icons").setup()
 require("mini.statusline").setup()
 require("mini.pick").setup()
@@ -38,13 +39,28 @@ require("nvim-treesitter.configs").setup({
 		ensure_installed = { "vue", "typescript", "javascript", "lua" },
 		highlight = { enable = true },
 })
+require("kanagawa").setup({
+    colors = {
+        theme = {
+            all = {
+                ui = {
+                    bg_gutter = "none"
+                }
+            }
+        }
+    }
+})
+vim.cmd.colorscheme("kanagawa-wave")
 
 -- Keybindings
 vim.keymap.set("n", "<Leader>h", ":Pick help<CR>")
 vim.keymap.set("n", "<Leader>p", ":Pick buffers<CR>")
-vim.keymap.set("n", "<Leader>f", ":Pick files<CR>")
+vim.keymap.set("n", "<Leader><Leader>", ":Pick files<CR>")
 vim.keymap.set("n", "<Leader>ec", ":e ~/.config/nvim/init.lua<CR>")
+vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set("n", "-", ":Oil<CR>")
+vim.keymap.set("n", "<Leader>fm", vim.lsp.buf.format)
+vim.keymap.set({"n", "i"}, "gd", vim.lsp.buf.definition)
 
 -- LSP
 vim.lsp.enable("lua_ls")
