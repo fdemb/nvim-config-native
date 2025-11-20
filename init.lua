@@ -116,7 +116,15 @@ vim.api.nvim_create_user_command("Format", function(args)
     require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 
+vim.api.nvim_create_user_command('Wbd', function()
+  if vim.bo.modified and vim.bo.modifiable and vim.fn.expand('%') ~= '' then
+    vim.cmd('write')
+  end
+  vim.cmd('bdelete')
+end, { desc = 'Save (if possible) and close buffer' })
+
 -- Keybindings
+vim.keymap.set("n", "<Leader>q", ":Wbd<CR>")
 vim.keymap.set("n", "<Leader>h", MiniPick.builtin.help)
 vim.keymap.set("n", "<Leader><Leader>", MiniPick.builtin.buffers)
 vim.keymap.set("n", "<Leader>p", MiniPick.builtin.files)

@@ -13,12 +13,22 @@
       "rev": "572f566",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "kanagawa.nvim": [],
+    "kanagawa.nvim": {
+      "rev": "debe91547d7fb1eef34ce26a5106f277fbfdd109",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "mini-git": {
       "rev": "8324672",
       "src": "https://github.com/echasnovski/mini-git"
     },
-    "mini.completion": [],
+    "mini.completion": {
+      "rev": "3009e3508209657aaa459b1753597f4a5eb5c684",
+      "src": "https://github.com/echasnovski/mini.completion"
+    },
+    "mini.hues": {
+      "rev": "3db0ee390af98c55e3336380b675ed23a053743a",
+      "src": "https://github.com/nvim-mini/mini.hues"
+    },
     "mini.icons": {
       "rev": "ff2e4f1",
       "src": "https://github.com/echasnovski/mini.icons"
@@ -62,6 +72,10 @@
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "vim": {
+      "rev": "112e24fa2e1d4fa1710cc77de223384097ebe1e6",
+      "src": "https://github.com/embark-theme/vim"
     }
   }
 }
